@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+#boolzap {
+    height: 100vh;
+    display: flex;
+}
+
+/* sidebar */
+#contacts {
+    width: 400px;
+    /* border: 2px solid green; */
+}
+
+#personalInfo, .contact {
+    height: 50px;
+    /* border: 1px solid grey; */
+}
+
+/* banner profilo */
+#personalInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEAEA;
+    padding: 0 5px;
+}
+
+#profileImg, #chatList > .contact {
+    display: flex;
+    align-items: center;
+}
+
+#profileImg figure, #chatList > .contact figure {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#profileImg span {
+    padding-left: 10px;
+}
+
+#userInfoIcons i {
+    padding: 0 5px;
+}
+
+/* banner notifiche */
+#notificationBanner {
+    background-color: #53BDEB;
+    height: 90px;
+    /* vertical-align: middle; */
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+#notificationIcon {
+    border-radius: 999px;
+    padding: 10px;
+    color: #53BDEB;
+    background-color: #fff;
+}
+
+#notification-cta {
+    padding: 0 5px;
+}
+
+#notification-cta p:last-child {
+    font-size: 12px;
+    line-height: 15px;
+    vertical-align: middle;
+}
+
+/* ricerca chat */
+#search { 
+    /* height: 40px; */
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    padding: 3px;
+    position: relative;
+}
+
+#search input {
+    width: 100%;
+    border-radius: 10px;
+    line-height: 25px;
+    padding-left: 25px;
+    border: none;
+}
+
+#search i {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+}
+
+/* contatti */
+.contact {
+    padding: 3px 5px;
+    position: relative;
+}
+
+.contact > div {
+    padding-left: 5px;
+    font-size: 10px;
+}
+
+.contact div p:first-child {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact:hover {
+    background-color: #FAFAFA;
+    cursor: pointer;
+}
+
+.contact > span {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.active-chat, .active-chat:hover {
+    background-color: #E9EBEB;
+}
+
+/* chat */
+#chat {
+    flex-grow: 1;
+    /* border: 2px solid blue; */
+    background-image: url("https://i.redd.it/qwd83nc4xxf41.jpg");
+    /* background-image: url('img/whatBgImg.jpg'); */
+}
+
