@@ -40,7 +40,15 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 999px;
+    object-fit: cover;
     overflow: hidden;
+}
+
+.round-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
 }
 
 .icons-wrapper i {
@@ -94,14 +102,16 @@ vertical-align: middle;
     /* ricerca chat */
 #search-chat { 
     position: relative;
+    background-color: #fff;
 }
 
 #search-chat input {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     line-height: 25px;
     padding-left: 30px;
     border: none;
+    background-color: #F0F2F5;
 }
 
 #search-chat i {
@@ -112,14 +122,12 @@ vertical-align: middle;
 }
 
     /* lista contatti */
-#chatList > .contact {
-    display: flex;
-    align-items: center;
-} 
-
 .contact {
     padding: 3px 5px;
     position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
 }
 
 .contact > div {

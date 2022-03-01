@@ -14,8 +14,9 @@
     <header></header>
 
     <main id="boolzap">
-
-        <sidebar id="sidebar-wrapper">
+        <!-- sidebar -->
+        <section id="sidebar-wrapper">
+            <!-- informazioni personali -->
             <div id="personal-info" class="toolbar">
                 <div class="user-info">
                     <figure class="round-img">
@@ -31,6 +32,7 @@
                 </div>
             </div>
 
+            <!-- banner blu delle notifiche desktop -->
             <div id="notificationBanner">
                 <div id="notificationIcon">
                     <i class="fa-solid fa-bell-slash"></i>
@@ -45,54 +47,40 @@
                 </div>
             </div>
 
+            <!-- barra di ricerca chat/contatti -->
             <div id="search-chat" class="toolbar">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
+            <!-- lista dei contatti -->
             <div id="chatList">
-                <div class="contact active-chat">
+                <div v-for="(item, index) in contacts"
+                :class="(index == 0) ? 'active-chat' : ''"
+                class="contact">
                     <figure class="round-img">
-                        <img src="https://picsum.photos/200/200">
+                        <img :src="item.avatar">
                     </figure>
                     <div>
-                        <p>Nome contatto</p>
-                        <p>Messaggio</p>
+                        <p>{{ item.name }}</p>
+                        <!-- <p>{{ item.messages[2].text }}</p> -->
                     </div>
-                    <span>data</span>
-                </div>
-
-                <div class="contact">
-                    <figure class="round-img">
-                        <img src="https://picsum.photos/200/200">
-                    </figure>
-                    <div>
-                        <p>Nome contatto</p>
-                        <p>Messaggio</p>
-                    </div>
-                    <span>data</span>
-                </div>
-
-                <div class="contact">
-                    <figure class="round-img">
-                        <img src="https://picsum.photos/200/200">
-                    </figure>
-                    <div>
-                        <p>Nome contatto</p>
-                        <p>Messaggio</p>
-                    </div>
-                    <span>data</span>
+                    <!-- <span>{{ item.messages[2].date }}</span> -->
                 </div>
             </div>
-        </sidebar>
+        </section>
 
-        <section id="largerChat">
+        <!-- sezione messaggi di una chat -->
+        <section id="largerChat"
+        v-for="(item, index) in contacts" 
+        v-show="(index == 0) ? true : false">
+            <!-- banner in alto info contatto -->
             <div id="contact-info" class="toolbar">
                 <div class="user-info">
                     <figure class="round-img">
-                        <img src="https://picsum.photos/200/200">
+                        <img :src="item.avatar">
                     </figure>
-                    <span>Nome contatto</span>
+                    <span>{{ item.name }}</span>
                 </div>
                 <div class="icons-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -100,50 +88,17 @@
                 </div>
             </div>
 
+            <!-- messaggi -->
             <div id="messages">
-                <div class="msg sent">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, doloremque.
-                    Maxime eaque neque minima labore aspernatur harum repudiandae alias eos!
-                    Praesentium, eligendi. Iure sed quasi illum vel numquam eius non?
-                    <p class="time">orario</p>
-                </div>
-                <div class="msg sent">
-                    Lorem ipsum dolor sit amet.
-                    Maiores odit odio aspernatur sed!
-                    Id enim quo quaerat aliquid.
-                    <p class="time">orario</p>
-                </div>
-
-                <div class="msg received">
-                    Lorem ipsum dolor sit.
-                    Voluptate magnam odio tenetur.
-                    <p class="time">orario</p>
-                </div>
-                <div class="msg received">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Atque asperiores ipsum distinctio iste. Ratione, nesciunt expedita?
-                    Deleniti, eligendi quo. Similique maiores magni ducimus ea.
-                    Expedita, illo quidem! Molestias recusandae labore dignissimos. Quas.
-                    Ex, nam provident? Fugiat ipsam molestiae ut ad.
-                    Animi eius porro, totam consequuntur repellendus ad nihil.
-                    Officia omnis optio repellendus, minima accusamus odit sint.
-                    <p class="time">orario</p>
-                </div>
-
-                <div class="msg sent">
-                    Lorem ipsum dolor sit.
-                    Voluptate delectus magnam vel!
-                    Quam placeat explicabo excepturi?
-                    Incidunt nostrum harum repellat?
-                    Quo adipisci quia harum?
-                    Dolorem neque excepturi tenetur.
-                    Explicabo hic nisi mollitia.
-                    Laudantium recusandae odio quia!
-                    Recusandae vel reiciendis voluptas.
-                    <p class="time">orario</p>
+                <div class="msg"
+                v-for="(msg, index) in item.messages"
+                :class="(msg.status == 'sent') ? 'sent' : 'received'">
+                    {{ msg.text }}
+                    <p class="time">{{ msg.date }}</p>
                 </div>
             </div>
 
+            <!-- toolbar in basso per inviare msg -->
             <div id="chat_toolbar" class="toolbar">
                 <div class="icons-wrapper">
                     <i class="fa-solid fa-face-laugh-beam"></i>
