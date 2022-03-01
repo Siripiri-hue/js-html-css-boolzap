@@ -11,50 +11,67 @@ img {
     max-width: 100%;
 }
 
+body {
+    background-color: #E0E0DD;
+}
+
+header {
+    height: 20vh;
+    background-color: #00A884;
+}
+
 #boolzap {
-    height: 100vh;
     display: flex;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    bottom: 40px;
+    left: 40px;
+    background-color: #fff;
 }
 
-/* sidebar */
-#contacts {
-    width: 400px;
-    /* border: 2px solid green; */
-}
-
-#personalInfo, .contact {
-    height: 50px;
-    /* border: 1px solid grey; */
-}
-
-/* banner profilo */
-#personalInfo {
+/* commons */
+.toolbar {
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #EAEAEA;
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
-#profileImg, #chatList > .contact {
-    display: flex;
-    align-items: center;
-}
-
-#profileImg figure, #chatList > .contact figure {
+.round-img {
     width: 40px;
     height: 40px;
     border-radius: 999px;
     overflow: hidden;
 }
 
-#profileImg span {
-    padding-left: 10px;
+.banner-icons i {
+    padding: 0 5px;
+    color: #54656F;
 }
 
-#userInfoIcons i {
-    padding: 0 5px;
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+/* sidebar */
+#sidebar-wrapper {
+    width: 30%;
+}
+
+/* banner profilo */
+#personal-info {
+    border-right: 1px solid #d6d6d6;
+}
+
+#chatList > .contact {
+    display: flex;
+    align-items: center;
+} 
 
 /* banner notifiche */
 #notificationBanner {
@@ -84,7 +101,7 @@ img {
 }
 
 /* ricerca chat */
-#search { 
+#search-chat { 
     /* height: 40px; */
     line-height: 40px;
     vertical-align: middle;
@@ -93,18 +110,19 @@ img {
     position: relative;
 }
 
-#search input {
+#search-chat input {
     width: 100%;
     border-radius: 10px;
     line-height: 25px;
-    padding-left: 25px;
+    padding-left: 30px;
     border: none;
 }
 
-#search i {
+#search-chat i {
     position: absolute;
     left: 10px;
-    top: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* contatti */
@@ -146,5 +164,30 @@ img {
     /* border: 2px solid blue; */
     background-image: url("https://i.redd.it/qwd83nc4xxf41.jpg");
     /* background-image: url('img/whatBgImg.jpg'); */
+    display: flex;
+    flex-direction: column;
 }
+
+#messages {
+    flex-grow: 1;
+}
+
+#chat_toolbar {
+    gap: 10px;
+    font-size: 20px;
+}
+
+#chat_toolbar input {
+    flex-grow: 1;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    padding: 0 5px;
+    line-height: 30px;
+}
+
+#chat_toolbar .toolbar {
+    justify-content: space-around;
+}
+
 

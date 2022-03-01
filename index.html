@@ -11,18 +11,20 @@
 </head>
 <body>
 
-    <main id="boolzap">
+    <header></header>
 
-        <sidebar id="contacts">
-            <div id="personalInfo">
-                <div id="profileImg">
-                    <figure>
+    <main id="boolzap">
+        <sidebar id="sidebar-wrapper">
+
+            <div id="personal-info" class="toolbar">
+                <div class="user-info">
+                    <figure class="round-img">
                         <img src="https://picsum.photos/200/200">
                     </figure>
                     <span>サラ八</span>
                 </div>
 
-                <div id="userInfoIcons">
+                <div class="banner-icons">
                     <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -43,14 +45,14 @@
                 </div>
             </div>
 
-            <div id="search">
+            <div id="search-chat">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <div id="chatList">
                 <div class="contact active-chat">
-                    <figure>
+                    <figure class="round-img">
                         <img src="https://picsum.photos/200/200">
                     </figure>
                     <div>
@@ -60,7 +62,7 @@
                     <span>Data</span>
                 </div>
                 <div class="contact">
-                    <figure>
+                    <figure class="round-img">
                         <img src="https://picsum.photos/200/200">
                     </figure>
                     <div>
@@ -70,7 +72,7 @@
                     <span>Data</span>
                 </div>
                 <div class="contact">
-                    <figure>
+                    <figure class="round-img">
                         <img src="https://picsum.photos/200/200">
                     </figure>
                     <div>
@@ -83,7 +85,35 @@
         </sidebar>
 
         <section id="chat">
-            <!-- -- qui verranno visualizzati i messaggi delle chat -- -->
+            <div id="contact-info" class="toolbar">
+                <div class="user-info">
+                    <figure class="round-img">
+                        <img src="https://picsum.photos/200/200">
+                    </figure>
+                    <span>Nome contatto</span>
+                </div>
+                <div class="banner-icons">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+
+            <div id="messages">
+
+            </div>
+
+            <div id="chat_toolbar" class="toolbar">
+                <div class="banner-icons">
+                    <i class="fa-solid fa-face-laugh-beam"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                </div>
+                
+                <input type="text" placeholder="Scrivi un messaggio">
+
+                <div class="banner-icons">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
         </section>
 
     </main>
