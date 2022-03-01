@@ -1,3 +1,4 @@
+/* generali */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 * {
@@ -7,13 +8,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-img {
-    max-width: 100%;
-}
-
-body {
-    background-color: #E0E0DD;
-}
+img { max-width: 100%; }
+body { background-color: #E0E0DD; }
 
 header {
     height: 20vh;
@@ -32,12 +28,12 @@ header {
 
 /* commons */
 .toolbar {
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #EAEAEA;
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 
 .round-img {
@@ -47,7 +43,7 @@ header {
     overflow: hidden;
 }
 
-.banner-icons i {
+.icons-wrapper i {
     padding: 0 5px;
     color: #54656F;
 }
@@ -60,53 +56,43 @@ header {
 
 /* sidebar */
 #sidebar-wrapper {
-    width: 30%;
+    min-width: 30%;
+    /* min-width: 250px; */
 }
 
-/* banner profilo */
+    /* banner profilo */
 #personal-info {
     border-right: 1px solid #d6d6d6;
 }
 
-#chatList > .contact {
-    display: flex;
-    align-items: center;
-} 
-
-/* banner notifiche */
+    /* banner notifiche desktop */
 #notificationBanner {
     background-color: #53BDEB;
     height: 90px;
-    /* vertical-align: middle; */
     padding: 0 5px;
     display: flex;
     align-items: center;
 }
 
 #notificationIcon {
-    border-radius: 999px;
-    padding: 10px;
-    color: #53BDEB;
-    background-color: #fff;
+border-radius: 999px;
+padding: 10px;
+color: #53BDEB;
+background-color: #fff;
 }
 
 #notification-cta {
-    padding: 0 5px;
+padding: 0 5px;
 }
 
 #notification-cta p:last-child {
-    font-size: 12px;
-    line-height: 15px;
-    vertical-align: middle;
+font-size: 12px;
+line-height: 15px;
+vertical-align: middle;
 }
 
-/* ricerca chat */
+    /* ricerca chat */
 #search-chat { 
-    /* height: 40px; */
-    line-height: 40px;
-    vertical-align: middle;
-    background-color: #f5f5f5;
-    padding: 3px;
     position: relative;
 }
 
@@ -120,12 +106,17 @@ header {
 
 #search-chat i {
     position: absolute;
-    left: 10px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* contatti */
+    /* lista contatti */
+#chatList > .contact {
+    display: flex;
+    align-items: center;
+} 
+
 .contact {
     padding: 3px 5px;
     position: relative;
@@ -158,20 +149,98 @@ header {
     background-color: #E9EBEB;
 }
 
-/* chat */
-#chat {
+/* sezione chat ingrandita */
+#largerChat {
     flex-grow: 1;
-    /* border: 2px solid blue; */
     background-image: url("https://i.redd.it/qwd83nc4xxf41.jpg");
     /* background-image: url('img/whatBgImg.jpg'); */
     display: flex;
     flex-direction: column;
 }
 
+    /* messaggi */
 #messages {
     flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    /* justify-content: space-between; */
+    overflow-y: auto;
 }
 
+.msg {
+    max-width: 60%;
+    padding: 7px;
+    display: flex; 
+    flex-direction: column; 
+    border-radius: 10px; 
+    position: relative;
+    margin: 2px;
+    filter: drop-shadow(3px 2px 2px #aaa);
+}
+
+.sent {
+    background-color: #D9FDD3;
+    /* align-items: flex-end; */
+    align-self: self-end;
+}
+
+.received {
+    background-color: #fff;
+    align-self: self-start;
+}
+
+.msg::before {
+    content: "";
+    display: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+
+.msg.sent::before {
+    border-width: 12px 12px 0 0;
+    border-color: #d9fdd3 transparent transparent transparent;
+    left: 100%;
+}
+
+.msg.received::before {
+    border-width: 0 12px 12px 0;
+    border-color: transparent #fff transparent transparent;
+    right: 100%;
+}
+
+.msg.sent:first-child::before,
+.msg.received + .msg.sent::before,
+.msg.received:first-child::before,
+.msg.sent + .msg.received::before {
+    display: block;
+}
+
+.msg.sent:first-child,
+.msg.received + .msg.sent {
+    border-top-right-radius: 0;
+}
+
+
+.msg.received:first-child,
+.msg.sent + .msg.received {
+    border-top-left-radius: 0;
+}
+
+.msg.sent + .msg.received, .msg.received + .msg.sent {
+    margin-top: 20px;
+}
+
+.time {
+    align-self: self-end;
+    font-size: 10px;
+}
+
+    /* toolbar invia messaggi */
 #chat_toolbar {
     gap: 10px;
     font-size: 20px;
@@ -189,5 +258,3 @@ header {
 #chat_toolbar .toolbar {
     justify-content: space-around;
 }
-
-
