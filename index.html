@@ -61,11 +61,12 @@
                     <figure class="round-img">
                         <img :src="item.avatar">
                     </figure>
+
                     <div>
                         <p>{{ item.name }}</p>
-                        <!-- <p>{{ item.messages[2].text }}</p> -->
+                        <p>{{ item.messages[item.messages.length - 1].text }}</p>
                     </div>
-                    <!-- <span>{{ item.messages[2].date }}</span> -->
+                    <span>{{ item.messages[item.messages.length - 1].date }}</span>
                 </div>
             </div>
         </section>
