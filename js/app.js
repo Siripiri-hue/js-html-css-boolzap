@@ -90,13 +90,12 @@ const Boolzap = new Vue ({
         ],
     },
     methods : {
-        changeIndex: function(i) 
-        {
+        changeIndex: function(i) {
             this.currentIndex = i;
             // console.log(this.currentIndex);
         },
-        createNewMsg: function(newText) 
-        {
+
+        createNewMsg: function(newText) {
             const d = new Date();
             const newMessage = {
                 date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
@@ -106,6 +105,18 @@ const Boolzap = new Vue ({
             this.contacts[this.currentIndex].messages.push(newMessage);
 
             this.newMsg = "";
+            const timeout = setTimeout(this.reply(), 10000);
+        },
+
+        reply: function() {
+            const d = new Date();
+            const reply = {
+                date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+                text: "Ok!",
+                status: 'received',
+            }
+
+            this.contacts[this.currentIndex].messages.push(reply);
         }
     }
 })
