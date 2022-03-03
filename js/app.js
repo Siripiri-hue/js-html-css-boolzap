@@ -1,8 +1,10 @@
 const Boolzap = new Vue ({
     el: "#boolzap",
+
     data: {
         currentIndex : 0,
         newMsg: "",
+        searchInput: "",
         contacts: [
             {
                 name: 'Michele',
@@ -89,6 +91,7 @@ const Boolzap = new Vue ({
             },
         ],
     },
+
     methods : {
         changeIndex: function(i) {
             this.currentIndex = i;
@@ -117,6 +120,13 @@ const Boolzap = new Vue ({
             }
 
             this.contacts[this.currentIndex].messages.push(reply);
+        },
+
+        filteredList: function() {
+                return this.contacts.filter(item => {
+                  return item.name.toLowerCase().includes(this.searchInput.toLowerCase());
+                })
         }
     }
 })
+

@@ -50,12 +50,14 @@
             <!-- barra di ricerca chat/contatti -->
             <div id="search-chat" class="toolbar">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat"
+                v-model="searchInput">
+                <!-- v-on:input="filteredList(search)" -->
             </div>
 
             <!-- lista dei contatti -->
             <div id="chatList">
-                <div v-for="(item, index) in contacts"
+                <div v-for="(item, index) in filteredList(contacts)"
                 :class="(index == currentIndex) ? 'active-chat' : ''"
                 class="contact"
                 @click="changeIndex(index)">
