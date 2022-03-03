@@ -1,6 +1,7 @@
 const Boolzap = new Vue ({
     el: "#boolzap",
     data: {
+        currentIndex : 0,
         contacts: [
             {
                 name: 'Michele',
@@ -87,4 +88,11 @@ const Boolzap = new Vue ({
             },
         ],
     },
+    methods : {
+        changeIndex: function(i) 
+        {
+            this.currentIndex = i;
+            // console.log(this.currentIndex);
+        }
+    }
 })
