@@ -107,7 +107,9 @@
                     <i class="fa-solid fa-paperclip"></i>
                 </div>
                 
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" 
+                v-model="newMsg" 
+                v-on:keyup.enter="createNewMsg(newMsg)">
 
                 <div class="icons-wrapper">
                     <i class="fa-solid fa-microphone"></i>

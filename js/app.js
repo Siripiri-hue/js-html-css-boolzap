@@ -2,6 +2,7 @@ const Boolzap = new Vue ({
     el: "#boolzap",
     data: {
         currentIndex : 0,
+        newMsg: "",
         contacts: [
             {
                 name: 'Michele',
@@ -93,6 +94,18 @@ const Boolzap = new Vue ({
         {
             this.currentIndex = i;
             // console.log(this.currentIndex);
+        },
+        createNewMsg: function(newText) 
+        {
+            const d = new Date();
+            const newMessage = {
+                date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+                text: newText,
+                status: 'sent',
+            }
+            this.contacts[this.currentIndex].messages.push(newMessage);
+
+            this.newMsg = "";
         }
     }
 })
