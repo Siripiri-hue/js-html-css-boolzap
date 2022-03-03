@@ -76,7 +76,7 @@
 
         <!-- sezione messaggi di una chat -->
         <section id="largerChat"
-        v-for="(item, index) in contacts" 
+        v-for="(item, index) in filteredList(contacts)" 
         v-show="(index == currentIndex) ? true : false">
             <!-- banner in alto info contatto -->
             <div id="contact-info" class="toolbar">

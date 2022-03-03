@@ -106,12 +106,13 @@ const Boolzap = new Vue ({
                 status: 'sent',
             }
             this.contacts[this.currentIndex].messages.push(newMessage);
-
             this.newMsg = "";
-            const timeout = setTimeout(this.reply(), 10000);
+            this.reply();
         },
 
         reply: function() {
+            let thisConv = this.currentIndex;
+            setTimeout(() => {
             const d = new Date();
             const reply = {
                 date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
@@ -119,7 +120,19 @@ const Boolzap = new Vue ({
                 status: 'received',
             }
 
-            this.contacts[this.currentIndex].messages.push(reply);
+            this.contacts[thisConv].messages.push(reply);
+            }, 5000); 
+            
+            // const d = new Date();
+            // const reply = {
+            //     date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+            //     text: "Ok!",
+            //     status: 'received',
+            // }
+
+            // this.contacts[this.currentIndex].messages.push(reply);
+            
+            // setTimeout = () => (this.reply, 10000);
         },
 
         filteredList: function() {
